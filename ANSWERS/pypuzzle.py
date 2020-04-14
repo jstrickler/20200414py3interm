@@ -2,18 +2,26 @@
 # (c) 2018 CJ Associates
 #
 from struct import Struct
+import sys
+
+print(sys.byteorder)
 
 puzzle_layout = 'fififhHfIdfdIiIh'
 layout = Struct(puzzle_layout)
+
 
 with open('../DATA/puzzle.data', 'rb') as puzzle_in:
     puzzle_data = puzzle_in.read()
 
     values = layout.unpack(puzzle_data)
 
-    bytes = [int(v) for v in  values]
+    print(values)
 
-    name_letters = [chr(b) for b in bytes]
+#    bytes = [int(v) for v in  values]
+
+    name_letters = [chr(int(v)) for v in values]
+
+    print(name_letters)
 
     print(''.join(name_letters))
 

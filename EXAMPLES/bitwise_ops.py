@@ -3,6 +3,8 @@
 a = 0b10101010  # <1>
 b = 0b11110000
 
+print(a, b)
+
 c = a & b  # <2>
 print("  {:08b}".format(a))
 print("& {:08b}".format(b))

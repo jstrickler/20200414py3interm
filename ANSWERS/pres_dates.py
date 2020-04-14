@@ -5,7 +5,7 @@ pres_lname = input("Enter president's last name: ")
 with open("../DATA/presidents.txt") as PRES:
     for rec in PRES:
         flds = rec.split(":")
-        if flds[1] == pres_lname:
+        if flds[1] == pres_lname:    # 0 is first element  (NOT LIKE R or MATLAB....)
             if flds[4] == "NONE":
                 alive = True
             else:

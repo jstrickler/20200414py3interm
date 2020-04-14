@@ -6,8 +6,9 @@ with open("../DATA/presidents.txt") as pres_in:
     for rec in pres_in:
         flds = rec.split(":")
         state = flds[6]
-        if state in count_of:
+        if state in count_of:  # if state is already a key
             count_of[state] += 1
+            #  count_of[state] = count_of[state] + 1
         else:
             count_of[state] = 1
 
