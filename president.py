@@ -1,19 +1,19 @@
 from datetime import date
 
 
+def _mkdate(raw_date):
+    if raw_date != "NONE":
+        raw_year, raw_month, raw_day = raw_date.split('-')
+        d = date(int(raw_year), int(raw_month), int(raw_day))
+    else:
+        d = None
+
+    return d
+
 class President():
     def __init__(self, index):
         self._get_data(index)
 
-    @staticmethod
-    def _mkdate(raw_date):
-        if raw_date != "NONE":
-            raw_year, raw_month, raw_day = raw_date.split('-')
-            d = date(int(raw_year), int(raw_month), int(raw_day))
-        else:
-            d = None
-
-        return d
 
     def _get_data(self, index):
         # Note: replace the following code to use the DB API to get
@@ -28,14 +28,14 @@ class President():
 
                     self._fname = flds[2]
 
-                    self._bdate = self._mkdate(flds[3])
-                    self._ddate = self._mkdate(flds[4])
+                    self._bdate = _mkdate(flds[3])
+                    self._ddate = _mkdate(flds[4])
 
                     self._bplace = flds[5]
                     self._bstate = flds[6]
 
-                    self._ts_date = self._mkdate(flds[7])
-                    self._te_date = self._mkdate(flds[8])
+                    self._ts_date = _mkdate(flds[7])
+                    self._te_date = _mkdate(flds[8])
 
                     self._party = flds[9]
 
@@ -78,3 +78,6 @@ class President():
     @property
     def party(self):
         return self._party
+
+    def __str__(self):
+        return f"{type(self).__name__}({self.first_name} {self.last_name})"
