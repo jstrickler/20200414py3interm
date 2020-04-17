@@ -3,6 +3,7 @@
 import unittest
 from unittest.mock import Mock
 
+
 RETURN_VALUE = 99
 
 ham = Mock(return_value=RETURN_VALUE)  # <1>

@@ -7,7 +7,7 @@ s3conn = sqlite3.connect("../DATA/presidents.db")
 # conn.row_factory = sqlite3.Row
 
 NAME_QUERY = '''
-    select firstname, lastname
+    select firstname, lastname, party
     from presidents
     where termnum < 5
 '''
@@ -30,6 +30,6 @@ dcur.row_factory = sqlite3.Row  # <2>
 dcur.execute(NAME_QUERY)
 
 for row in dcur.fetchall():
-    print(row['firstname'], row['lastname'])  # <3>
+    print(row['firstname'], row['lastname'], row[-1])  # <3>
 
 print('-' * 50)

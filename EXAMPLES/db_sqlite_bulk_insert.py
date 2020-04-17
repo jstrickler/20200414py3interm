@@ -22,7 +22,7 @@ insert into fruit (name, price) values (?, ?)
 '''  # <3>
 
 
-def main():
+def main():  # 'main' is not a keyword
     """
     Program entry point.
 
@@ -66,16 +66,24 @@ def populate_database(conn):
     :return: None
     """
 
+    INSERT = '''
+    insert into fruit (name, price) values (?, ?)
+    '''  # <3>
+
     fruit_data = get_fruit_data()  # [('apple', .49), ('kiwi', .38)]
 
-    try:
-        conn.executemany(INSERT, fruit_data)  # <7>
-    except sqlite3.DatabaseError as err:
-        print(err)
-        conn.rollback()
-    else:
-        conn.commit()  # <8>
-
+    for i, fruit_info in enumerate(fruit_data, 1):
+        try:
+            for fruit_info in fruit_data:
+                print("fruit_info:", fruit_info)
+                conn.execute(INSERT, fruit_info)
+            # conn.executemany(INSERT, fruit_data) # short cut for the previous lines
+        except sqlite3.DatabaseError as err:
+            print(err)
+            conn.rollback()
+        if i % 5 == 0:
+            print("Committing")
+            conn.commit()
 
 def get_fruit_data():
     """

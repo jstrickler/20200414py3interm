@@ -19,3 +19,5 @@ m2.eggs(1, 2, 3) # <5>
 print("mock calls:", m2.mock_calls)
 
 m2.spam.assert_called_with('a', 'b') # <6>
+m2.ham.assert_called_with('wombat')
+# m2.eggs.assert_called_with(3, 4, 5)
