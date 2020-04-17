@@ -3,13 +3,18 @@
 import random
 from multiprocessing import Pool
 
-POOL_SIZE = 30  # <1>
+POOL_SIZE = 32  # <1>
 
 with open('../DATA/words.txt') as words_in:
     WORDS = [w.strip() for w in words_in]  # <2>
 
 random.shuffle(WORDS)  # <3>
 
+
+# def update_router(hostname_or_ip):
+#     n = NetMiko(hostname_or_ip)
+#     n.do_something()
+#
 
 def my_task(word):  # <4>
     return word.upper()

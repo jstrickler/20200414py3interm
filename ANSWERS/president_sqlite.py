@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 from datetime import date
 import sqlite3
@@ -19,7 +19,7 @@ class President(object):
         conn = sqlite3.connect("../DATA/presidents.db")
 
         cur = conn.cursor()
-        cur.execute(President.PRES_QUERY, (index,))
+        cur.execute(President.PRES_QUERY, [index])
         row = cur.fetchone()
         if row:
             self._termnum = row[0]

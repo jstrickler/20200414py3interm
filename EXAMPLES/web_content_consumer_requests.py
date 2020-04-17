@@ -14,30 +14,37 @@ def main(args):
         print("Please specify a search term")
         sys.exit(1)
 
-    response = requests.get(
-        BASE_URL + args[0],
-        params={'key': API_KEY},
-    )  # <3>
+    search_term = args[0] # .replace(' ', '+')
 
-    if response.status_code == requests.codes.OK:
-        # pprint(response.content.decode())
-        # print('-' * 60)
-        data = response.json()  # <4>
-        for entry in data: # <5>
-            if isinstance(entry, dict):
-                meta = entry.get("meta")
-                if meta:
-                    part_of_speech = '({})'.format(entry.get('fl'))
-                    word_id = meta.get("id")
-                    print("{} {}".format(word_id.upper(), part_of_speech))
-                if "shortdef" in entry:
-                    print('\n'.join(entry['shortdef']))
-                print()
-            else:
-                print(entry)
+    with requests.Session() as session:
+        session.params = {'key': API_KEY}
 
-    else:
-        print("Sorry, HTTP response", response.status_code)
+        response = session.get(BASE_URL + search_term)  # <3>
+
+        if response.status_code == requests.codes.OK:
+            pprint(response.content.decode())
+            print('-' * 60)
+            data = response.json()  # <4>
+
+            print("*" * 60)
+            pprint(data)
+            print("*" * 60, '\n')
+
+            for entry in data: # <5>  # for each element of list
+                if isinstance(entry, dict):  # is element a dict?
+                    meta = entry.get("meta")   # get dict element  entry['meta']
+                    if meta:
+                        part_of_speech = '({})'.format(entry.get('fl'))
+                        word_id = meta.get("id")
+                        print("{} {}".format(word_id.upper(), part_of_speech))
+                    if "shortdef" in entry:
+                        print('\n'.join(entry['shortdef']))
+                    print()
+                else:
+                    print(entry)
+
+        else:
+            print("Sorry, HTTP response", response.status_code)
 
 
 if __name__ == '__main__':

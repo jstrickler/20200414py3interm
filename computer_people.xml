@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='ASCII'?>
+<persons>
+  <person record_id="1">
+    <first_name>Melinda</first_name>
+    <last_name>Gates</last_name>
+    <first_name>Melinda</first_name>
+    <product>Gates Foundation</product>
+    <date_of_birth>1964-08-15</date_of_birth>
+  </person>
+  <person record_id="23">
+    <first_name>Steve</first_name>
+    <last_name>Jobs</last_name>
+    <first_name>Steve</first_name>
+    <product>Apple</product>
+    <date_of_birth>1955-02-24</date_of_birth>
+  </person>
+  <person record_id="42">
+    <first_name>Larry</first_name>
+    <last_name>Wall</last_name>
+    <first_name>Larry</first_name>
+    <product>Perl</product>
+    <date_of_birth>1954-09-27</date_of_birth>
+  </person>
+  <person record_id="37">
+    <first_name>Paul</first_name>
+    <last_name>Allen</last_name>
+    <first_name>Paul</first_name>
+    <product>Microsoft</product>
+    <date_of_birth>1953-01-21</date_of_birth>
+  </person>
+  <person record_id="28">
+    <first_name>Larry</first_name>
+    <last_name>Ellison</last_name>
+    <first_name>Larry</first_name>
+    <product>Oracle</product>
+    <date_of_birth>1944-08-17</date_of_birth>
+  </person>
+  <person record_id="43">
+    <first_name>Bill</first_name>
+    <last_name>Gates</last_name>
+    <first_name>Bill</first_name>
+    <product>Microsoft</product>
+    <date_of_birth>1955-10-28</date_of_birth>
+  </person>
+  <person record_id="97">
+    <first_name>Mark</first_name>
+    <last_name>Zuckerberg</last_name>
+    <first_name>Mark</first_name>
+    <product>Facebook</product>
+    <date_of_birth>1984-05-14</date_of_birth>
+  </person>
+  <person record_id="31">
+    <first_name>Sergey</first_name>
+    <last_name>Brin</last_name>
+    <first_name>Sergey</first_name>
+    <product>Google</product>
+    <date_of_birth>1973-08-21</date_of_birth>
+  </person>
+  <person record_id="29">
+    <first_name>Larry</first_name>
+    <last_name>Page</last_name>
+    <first_name>Larry</first_name>
+    <product>Google</product>
+    <date_of_birth>1973-03-26</date_of_birth>
+  </person>
+  <person record_id="18">
+    <first_name>Linus</first_name>
+    <last_name>Torvalds</last_name>
+    <first_name>Linus</first_name>
+    <product>Linux</product>
+    <date_of_birth>1969-12-28</date_of_birth>
+  </person>
+  <animal>
+    <species>wombat</species>
+  </animal>
+</persons>

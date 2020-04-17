@@ -15,8 +15,15 @@ class SimpleThread(Thread):
         print("Hello from thread {}".format(self._threadnum))
 
 
+thr_pool = []
 for i in range(10):
     t = SimpleThread(i)  # <3>
     t.start()  # <4>
+    thr_pool.append(t)
 
 print("Done.")
+
+for t in thr_pool:
+    t.join()
+
+print("all threads finished")

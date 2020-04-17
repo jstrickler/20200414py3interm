@@ -27,7 +27,7 @@ parrots = [  # <3>
 
 def encode(obj):  # <4>
     if isinstance(obj, date):  # <5>
-        return obj.ctime()  # <6>
+        return (obj.year, obj.day, obj.month)  # <6>
     elif isinstance(obj, Parrot):  # <7>
         return {'name': obj.name, 'color': obj.color}  # <8>
     return obj  # <9>
@@ -39,5 +39,12 @@ data = {  # <10>
     'toast': date(2014, 8, 1),
     'parrots': parrots,
 }
+
+try:
+    print(json.dumps(data, indent=4))  # <11>
+except Exception as err:
+    print(err)
+
+print('-' * 60)
 
 print(json.dumps(data, default=encode, indent=4))  # <11>

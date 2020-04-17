@@ -2,7 +2,7 @@
 #
 import shlex
 
-cmd = 'herp derp "fuzzy bear" "wanga tanga" pop'  # <1>
+cmd = 'myprogram derp "fuzzy bear" "wanga tanga" pop'  # <1>
 
 print(cmd.split())  # <2>
 print()
